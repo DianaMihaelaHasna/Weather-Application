@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gazdă: 127.0.0.1
--- Timp de generare: apr. 11, 2023 la 09:44 PM
+-- Timp de generare: apr. 12, 2023 la 12:08 AM
 -- Versiune server: 10.4.24-MariaDB
 -- Versiune PHP: 8.1.6
 
@@ -45,18 +45,20 @@ CREATE TABLE `users` (
   `email` varchar(100) NOT NULL,
   `parola` varchar(100) NOT NULL,
   `tara` varchar(100) NOT NULL,
-  `oras` varchar(100) NOT NULL
+  `oras` varchar(100) NOT NULL,
+  `tema` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Eliminarea datelor din tabel `users`
 --
 
-INSERT INTO `users` (`id_user`, `nume`, `prenume`, `email`, `parola`, `tara`, `oras`) VALUES
-('1', 'Ion', 'Vasile', 'vasile.ion99@yahoo.com', '1234', 'Romania', 'Sannicolau Mare'),
-('2', 'Alexandra', 'Popescu', 'pop.alex99@gmail.com', 'parola', 'Romania', 'Timisoara'),
-('3', 'Gaga', 'Marian', 'marian.gaga@yahoo.com', 'nustiu', 'Romania', 'Timisoara'),
-('4', 'Florin', 'Mara', 'mara_florin2@yahoo.com', 'parola', 'Romania', 'Timisoara');
+INSERT INTO `users` (`id_user`, `nume`, `prenume`, `email`, `parola`, `tara`, `oras`, `tema`) VALUES
+('1', 'Ion', 'Vasile', 'vasile.ion99@yahoo.com', '1234', 'Romania', 'Sannicolau Mare', ''),
+('2', 'Alexandra', 'Popescu', 'pop.alex99@gmail.com', 'parola', 'Romania', 'Timisoara', ''),
+('3', 'Gaga', 'Marian', 'marian.gaga@yahoo.com', 'nustiu', 'Romania', 'Timisoara', ''),
+('4', 'Florin', 'Mara', 'mara_florin2@yahoo.com', 'parola', 'Romania', 'Timisoara', ''),
+('5', 'Dani', 'Adreea', 'andre.dani22@yahoo.com', '12345', 'Germania', 'Hamburg', '1');
 
 --
 -- Indexuri pentru tabele eliminate

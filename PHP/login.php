@@ -1,5 +1,7 @@
 <?php
 
+
+
 session_start();
 include("connection.php");
 
@@ -66,7 +68,7 @@ if(isset($_POST["submit"]))
     if($rows_user == 1){
 
         $result = $check_user->fetch();
-        $_SESSION['id_user'] = $result['id_user'];
+        $_SESSION['id_of_the_user'] = $result['id_user'];
 
         $user_id = $result['id_user'];
         echo "<script>window.open('../PHP/main.php', '_self')</script>";

@@ -21,7 +21,6 @@ include("connection.php");
   <a href="../HTML/index.html" class="logo">Weather Application</a>
   <div class="header-right">
     <a href="../PHP/login.php">Log In</a>
-    <a href="#contact">Contact</a>
     <a class="active" href="../HTML/index.html">Home</a>
   </div>
 </div>
@@ -150,6 +149,7 @@ if(isset($_POST["submit"]))
     $password = $_POST["password1"];
     $country = $_POST["country"];
     $city = $_POST["city"];
+    $theme = " ";
 
 
     $check_email = $conn->prepare("select * from users where email=?");
@@ -189,9 +189,9 @@ if(isset($_POST["submit"]))
         $user_id = $maxim_id + 1;
         $user_id = (string)$user_id;
     }
-    $insert_user = $conn->prepare("insert into users values(?,?,?,?,?,?,?)");
+    $insert_user = $conn->prepare("insert into users values(?,?,?,?,?,?,?,?)");
 
-    $res = $insert_user->execute(array($user_id,$last_name,$first_name,$email,$password,$country,$city));
+    $res = $insert_user->execute(array($user_id,$last_name,$first_name,$email,$password,$country,$city,$theme));
 
 
     if($res)

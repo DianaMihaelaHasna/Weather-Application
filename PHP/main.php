@@ -4,18 +4,28 @@
     <title>Weather App</title>
     <meta charset="UTF-8" >
     <meta name = "viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../CSS/main.css">
-<link rel="stylesheet" href="../CSS/outHeader.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/outHeader.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
+<?php
+
+
+session_start();
+include ("connection.php");
+global $conn;
+$user_id = $_SESSION["id_of_the_user"];
+
+
+?>
+
+
 <body id="body" style="background-image : url('../Images/train.jpg')">
 
 <div class="header">
   <a href="../HTML/index.html" class="logo">Weather Application</a>
   <div class="header-right">
-  <button onclick="changeTheme()">Change Theme</button>
-  <a href="#contact">Contact</a>
-      <a href="#contact">Favorites</a>
+  <button onclick="changeTheme()" name="changeButton">Change Theme</button>
     <a class="active" href="../HTML/index.html">Home</a>
   </div>
 </div>
@@ -47,7 +57,7 @@
     <td>Make forecast for the desire city</td>
   </tr>
    <tr>
-    <td><button ><a href="../PHP/try.php" style="color:white"><span>Forecast</span> </a></button></td>
+    <td><button ><a href="../PHP/forecast.php" style="color:white"><span>Forecast</span> </a></button></td>
   </tr>
 </table>
 
@@ -102,26 +112,78 @@
       }
     </script>
 <script>
+let theme = "0";
 
-let theme = 0;
-
-  function changeTheme() {
-    if (theme == 0) {
-      document.body.style.backgroundImage = "url('../Images/cloud2.jpg')";
-      document.getElementById("table1").style.backgroundImage = "url('../Images/sun.jpg')";
-      document.getElementById("table2").style.backgroundImage = "url('../Images/sun2.jpg')";
-      theme = 1;
-    } else {
-      document.body.style.backgroundImage = "url('../Images/rain2.jpg')";
-      document.getElementById("table1").style.backgroundImage = "url('../Images/train.jpg')";
-      document.getElementById("table2").style.backgroundImage = "url('../Images/train.jpg')";
-      theme = 0;
-    }
+function changeTheme() {
+  if (theme == "0") {
+    document.body.style.backgroundImage = "url('../Images/cloud2.jpg')";
+    document.getElementById("table1").style.backgroundImage = "url('../Images/sun.jpg')";
+    document.getElementById("table2").style.backgroundImage = "url('../Images/sun2.jpg')";
+    theme = "1";
+  } else {
+    document.body.style.backgroundImage = "url('../Images/rain2.jpg')";
+    document.getElementById("table1").style.backgroundImage = "url('../Images/train.jpg')";
+    document.getElementById("table2").style.backgroundImage = "url('../Images/train.jpg')";
+    theme = "0";
   }
 
-
+  // Trimite valoarea variabilei "theme" către script-ul PHP folosind AJAX
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText); // afișează răspunsul de la script-ul PHP
+    }
+  };
+  xhttp.open("GET", "theme.php?theme=" + theme, true);
+  xhttp.send();
+}
 
 </script>
+
+
+<?php
+
+
+
+// preia valoarea temei din baza de date
+$stmt = $conn->prepare("SELECT tema FROM users WHERE id_user = :id");
+$stmt->bindParam(':id', $user_id);
+$stmt->execute();
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+if ($result) {
+  $selected_theme = $result['tema'];
+} else {
+  // setează o temă implicită dacă valoarea temei nu există în baza de date
+  $selected_theme = 'default';
+}
+
+// folosește valoarea temei pentru a afișa tema corespunzătoare
+if ($selected_theme == "1") {
+   echo "<script>";
+    echo "document.body.style.backgroundImage = 'url(" . "../Images/cloud2.jpg" .  ")';";
+    echo "document.getElementById('table1').style.backgroundImage = 'url(" . "../Images/sun.jpg" . ")';";
+    echo "document.getElementById('table2').style.backgroundImage = 'url(" . "../Images/sun2.jpg" . ")';";
+    echo " theme = '0';";
+   echo"</script> ";
+}
+else if ($selected_theme == "0") {
+   echo "<script>";
+    echo "document.body.style.backgroundImage = 'url(" . "../Images/rain2.jpg" .  ")';";
+    echo "document.getElementById('table1').style.backgroundImage = 'url(" . "../Images/train.jpg" . ")';";
+    echo "document.getElementById('table2').style.backgroundImage = 'url(" . "../Images/train.jpg" . ")';";
+    echo " theme = '1';";
+   echo"</script> ";
+
+}
+else {
+  // codul pentru tema implicită
+}
+
+
+?>
+
 
 
   </body>
