@@ -1,0 +1,121 @@
+body{
+ background-image : url('../Images/train.jpg');
+ image-opacity: 0.5;
+  background-size: cover;
+	background-repeat: no-repeat;
+ }
+
+input {
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      #weather-info {
+        margin-top: 20px;
+        font-size: 24px;
+      }
+
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin: auto;
+  background-color: #001f33;
+  image-opacity: 0.5;
+  margin-top :2%;
+  border-color : #292F33;
+  box-shadow: 10px 5px #888888;
+  font-family: 'Montserrat';
+  color : white;
+  border-collapse :collapse;
+  border-radius: 10px;
+
+}
+
+td {
+ border: none;
+  padding: 10px;
+  text-align: left;
+  text-align: center;
+
+
+}
+tr {
+height:20px;
+ border: none;
+  padding: 100px;
+  align: center;
+  vertical-align: middle;
+  color : #f2faff;
+  border-radius:20px;
+
+
+}
+
+tr:last-child td,
+tr:last-child th {
+  border-bottom: none;
+}
+
+@media (max-width: 500px) {
+  td,
+  th {
+    display: block;
+    width: 100%;
+    text-align: center;
+
+
+  }
+
+  td:first-child,
+  th:first-child {
+    padding-top: 20px;
+
+
+  }
+
+  td:last-child,
+  th:last-child {
+    padding-bottom: 20px;
+
+
+  }
+}
+button{ background-color:#ff8c1a;
+  color: white;
+  font-size: 25px;
+  font-family: Montserrat;
+  }
+
+
+ta{
+ width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin: auto;
+  margin-top :15%;
+  box-shadow: 10px 5px #888888;
+  font-family: 'Montserrat';
+  border-collapse :collapse;
+  border-radius: 5px;
+  background-color:	  #001f33;
+  text-align : center;
+}
+
+#myTable {
+  background-image: url('../Images/bg.jpg');
+
+}
+#myTable2 {
+  background-image: url('../Images/bg.jpg');
+}

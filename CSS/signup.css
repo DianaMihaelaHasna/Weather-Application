@@ -1,0 +1,231 @@
+/* pozitionare header, responsive,design */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image : url('../Images/background.gif');
+  background-size:cover;
+  background-repeat: no-repeat;
+   background-position: center center;
+}
+
+table {
+  width: 100%;
+  max-width: 600px; /* adjust the max-width as needed */
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin: auto;
+  background-color : black;
+  opacity : 0.6;
+  margin-top :2%;
+  border: 7px solid;
+  border-color : #292F33;
+  box-shadow :  13px 8px #888888;
+  color : white;
+
+}
+
+td {
+ border: none;
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle;
+
+}
+th {
+ border: none;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+
+}
+
+tr:last-child td,
+tr:last-child th {
+  border-bottom: none;
+}
+
+@media (max-width: 500px) {
+  td,
+  th {
+    display: block;
+    width: 100%;
+    text-align: center;
+
+  }
+
+  td:first-child,
+  th:first-child {
+    padding-top: 20px;
+  }
+
+  td:last-child,
+  th:last-child {
+    padding-bottom: 20px;
+  }
+}
+
+
+
+.header {
+  overflow: hidden;
+  background-color: #292F33;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* LOgo*/
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+  background-color :#ff8c1a;
+
+}
+
+.header a:hover {
+  background-color:#ff8c1a;
+  color: black;
+}
+/*buton de home*/
+.header a.active {
+  background-color:#ff8c1a;
+  color: white;
+}
+
+.header-right {
+  float: right;
+  background-color: #ddd;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .header-right {
+    float: none;
+  }
+}
+/* pozitionare footer, responsive,design */
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   min-height: 100%;
+}
+.content {
+   flex: 1;
+}
+.footer {
+    position: fixed;
+   bottom: 0;
+   width: 100%;
+   height: 60px;
+   background-color:#ff8c1a;
+   color: #fff;
+   text-align: center;
+}
+@media (max-width: 768px) {
+   .footer {
+      height: 80px;
+   }
+}
+
+
+
+
+input[type=text], input[type=password], select, textarea {
+  width: 60%;
+  padding: 12px;
+  border-radius: 4px;
+  resize: vertical;
+  color:#000000;/* culoare scris in casute*/
+  background-color:#888888;
+  margin-top : 2%;
+  padding-right: 60px;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+button[type=submit]{
+  background-color: #ff8c1a;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+
+}
+
+button[type=reset]{
+  background-color: #ff8c1a;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+
+}
+
+button[type=submit]:hover {
+  background-color: #888888;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+.classtd {
+border: none;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+
+
+
+}
